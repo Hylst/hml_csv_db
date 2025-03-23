@@ -224,28 +224,54 @@ class DatabaseManager:
                 # Ajouter la date d'importation
                 mapped_row = {'import_date': now}
                 
-                # Mapper les colonnes du CSV vers les colonnes de la base de données
+                # Méthode plus flexible pour traiter n'importe quelle structure de fichier CSV
+                # 1. Extraire toutes les colonnes disponibles dans la donnée CSV
                 for csv_col, value in row.items():
-                    # Obtenir le nom de colonne dans la base de données
+                    # Obtenir le nom de colonne normalisé pour la base de données
                     if csv_col in self.column_mapping:
                         db_col = self.column_mapping[csv_col]
-                        mapped_row[db_col] = value
                     else:
-                        # Convertir automatiquement (fallback)
+                        # Normaliser automatiquement le nom (fallback)
                         db_col = csv_col.lower().replace(' ', '_')
-                        mapped_row[db_col] = value
+                    
+                    # Stocker la valeur avec le nom de colonne normalisé
+                    mapped_row[db_col] = value
                 
-                # Préparer les colonnes et valeurs
-                columns = ', '.join(mapped_row.keys())
-                placeholders = ', '.join(['?' for _ in mapped_row.keys()])
+                # 2. Vérifier quelles colonnes existent dans la table mp3_files
+                # Récupérer la structure de la table
+                self.cursor.execute("PRAGMA table_info(mp3_files)")
+                table_columns = [info[1] for info in self.cursor.fetchall()]
+                
+                # 3. Ne conserver que les colonnes qui existent dans la table
+                valid_columns = {}
+                for col, val in mapped_row.items():
+                    if col in table_columns:
+                        valid_columns[col] = val
+                
+                # Si aucune colonne valide, passer à l'enregistrement suivant
+                if not valid_columns:
+                    self.logger.warning(f"Enregistrement ignoré car aucune colonne valide: {row}")
+                    continue
+                
+                # Préparer la requête avec seulement les colonnes valides
+                columns = ', '.join(valid_columns.keys())
+                placeholders = ', '.join(['?' for _ in valid_columns.keys()])
                 
                 # Préparer la requête
                 query = f"INSERT INTO mp3_files ({columns}) VALUES ({placeholders})"
                 
                 # Exécuter la requête
-                self.cursor.execute(query, list(mapped_row.values()))
-                inserted_count += 1
+                try:
+                    self.cursor.execute(query, list(valid_columns.values()))
+                    inserted_count += 1
+                except sqlite3.Error as e:
+                    self.logger.error(f"Erreur lors de l'insertion de l'enregistrement: {e}")
+                    self.logger.error(f"Requête: {query}")
+                    self.logger.error(f"Valeurs: {list(valid_columns.values())}")
+                    # Continuer avec les autres enregistrements
+                    continue
             
+            # Valider toutes les insertions
             self.conn.commit()
             self.logger.info(f"{inserted_count} enregistrements insérés avec succès")
             return inserted_count

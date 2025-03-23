@@ -5,31 +5,29 @@ Interface graphique pour l'application MP3Tag Analyzer
 Auteur: Geoffroy Streit
 """
 
-import os
 import sys
+import os
 import logging
-import traceback
 import sqlite3
+import csv
 from datetime import datetime
-from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-                             QLabel, QPushButton, QFileDialog, QTableWidget, 
-                             QTableWidgetItem, QTabWidget, QGroupBox, QLineEdit,
-                             QProgressBar, QMessageBox, QSplitter, QApplication,
-                             QStatusBar, QMenuBar, QMenu, QAction, QHeaderView,
-                             QComboBox, QCheckBox, QTextEdit, QDialog, QGridLayout,
-                             QListWidget, QListWidgetItem, QInputDialog)
-from PyQt5.QtCore import Qt, QSize, pyqtSignal, QThread, QObject, QSortFilterProxyModel
-from PyQt5.QtGui import QIcon, QFont, QTextCursor
 
-from db_manager import DatabaseManager
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
+                           QTabWidget, QLabel, QPushButton, QLineEdit, QComboBox,
+                           QTableWidget, QTableWidgetItem, QFileDialog, QMessageBox,
+                           QProgressBar, QStatusBar, QAction, QTextEdit, QListWidget,
+                           QGroupBox, QFormLayout, QDialog, QDialogButtonBox, QCheckBox,
+                           QSplitter, QFrame, QListWidgetItem, QInputDialog, QHeaderView)
+from PyQt5.QtCore import QThread, pyqtSignal, Qt, QMetaObject, Q_ARG, QVariant
+from PyQt5.QtGui import QIcon, QFont
+
 from csv_parser import CSVParser
+from db_manager import DatabaseManager
+from db_exporter import DBExporter, MYSQL_AVAILABLE, POSTGRES_AVAILABLE
 
 # Configuration du logging
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    handlers=[logging.StreamHandler(),
-                              logging.FileHandler('mp3tag_analyzer.log')])
-
+logging.basicConfig(filename='mp3tag_analyzer.log', level=logging.INFO,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 class Worker(QThread):
     """Classe de travailleur pour exécuter des opérations en arrière-plan"""
@@ -273,37 +271,62 @@ class MainWindow(QMainWindow):
         # Menu Fichier
         file_menu = menu_bar.addMenu("Fichier")
         
-        # Actions du menu Fichier
-        open_csv_action = QAction("Ouvrir CSV", self)
-        open_csv_action.triggered.connect(self._load_csv_file)
-        file_menu.addAction(open_csv_action)
+        # Chargement CSV
+        load_csv_action = QAction("Charger CSV", self)
+        load_csv_action.triggered.connect(self._load_csv_file)
+        file_menu.addAction(load_csv_action)
         
-        open_db_action = QAction("Ouvrir Base de Données", self)
-        open_db_action.triggered.connect(self._load_database)
-        file_menu.addAction(open_db_action)
+        # Chargement Base
+        load_db_action = QAction("Charger Base de Données", self)
+        load_db_action.triggered.connect(self._load_database)
+        file_menu.addAction(load_db_action)
         
+        # Enregistrement Base
         save_db_action = QAction("Enregistrer Base de Données", self)
         save_db_action.triggered.connect(self._save_database)
         file_menu.addAction(save_db_action)
         
+        # Séparateur
         file_menu.addSeparator()
         
-        exit_action = QAction("Quitter", self)
-        exit_action.triggered.connect(self.close)
-        file_menu.addAction(exit_action)
+        # Sous-menu Export
+        export_menu = file_menu.addMenu("Exporter vers...")
+        
+        # Export MySQL
+        if MYSQL_AVAILABLE:
+            export_mysql_action = QAction("MySQL", self)
+            export_mysql_action.triggered.connect(self._export_to_mysql)
+            export_menu.addAction(export_mysql_action)
+        else:
+            export_mysql_disabled = QAction("MySQL (non disponible)", self)
+            export_mysql_disabled.setEnabled(False)
+            export_menu.addAction(export_mysql_disabled)
+        
+        # Export PostgreSQL
+        if POSTGRES_AVAILABLE:
+            export_postgres_action = QAction("PostgreSQL", self)
+            export_postgres_action.triggered.connect(self._export_to_postgres)
+            export_menu.addAction(export_postgres_action)
+        else:
+            export_postgres_disabled = QAction("PostgreSQL (non disponible)", self)
+            export_postgres_disabled.setEnabled(False)
+            export_menu.addAction(export_postgres_disabled)
+        
+        # Séparateur
+        file_menu.addSeparator()
+        
+        # Quitter
+        quit_action = QAction("Quitter", self)
+        quit_action.triggered.connect(self.close)
+        file_menu.addAction(quit_action)
         
         # Menu Édition
         edit_menu = menu_bar.addMenu("Édition")
         
-        # Actions du menu Édition
-        search_action = QAction("Rechercher", self)
-        search_action.triggered.connect(lambda: self.search_field.setFocus())
-        edit_menu.addAction(search_action)
-        
         # Menu Aide
         help_menu = menu_bar.addMenu("Aide")
         
-        # Actions du menu Aide
+        # À propos
         about_action = QAction("À propos", self)
         about_action.triggered.connect(self._show_about)
         help_menu.addAction(about_action)
@@ -338,7 +361,7 @@ class MainWindow(QMainWindow):
             # Mise à jour du tableau
             self._update_table()
             
-            # Ajout des colonnes dans le menu déroulant de recherche
+            # Mise à jour des options de recherche
             self.search_column.clear()
             self.search_column.addItem("Tous les champs", "all")
             for header in self.headers:
@@ -346,7 +369,7 @@ class MainWindow(QMainWindow):
             
             # Insertion des données dans la base de données
             worker = Worker(self._insert_data_to_db)
-            worker.finished.connect(lambda count: self.status_bar.showMessage(f"{count} enregistrements insérés dans la base de données"))
+            worker.finished.connect(self._data_inserted_handler)  # Utilisez le nouveau gestionnaire
             worker.error.connect(self._handle_error)
             worker.start()
             self.active_workers.append(worker)
@@ -362,11 +385,13 @@ class MainWindow(QMainWindow):
             self.active_workers.remove(sender)
     
     def _insert_data_to_db(self):
-        """Méthode pour insérer les données dans la base de données dans un thread séparé"""
+        """Méthode pour insérer les données dans la base de données dans un thread séparé
+        Cette méthode s'exécute dans un thread séparé, elle ne doit donc pas manipuler directement l'interface
+        """
         try:
-            # Créer une nouvelle instance pour ce thread
+            # Utiliser le gestionnaire de base de données courant avec le chemin actuel
             db = DatabaseManager()
-            db.connect()
+            db.connect(self.current_db_path)
             
             # Créer les tables si elles n'existent pas
             db.create_tables()
@@ -374,20 +399,6 @@ class MainWindow(QMainWindow):
             # Insertion des données dans la base
             data = self.current_data
             records_inserted = db.insert_records(data)
-            
-            # Après l'insertion réussie, proposer de sauvegarder la base
-            if records_inserted > 0:
-                response = QMessageBox.question(
-                    self,
-                    "Données importées",
-                    f"{records_inserted} enregistrements ont été insérés dans la base temporaire. Voulez-vous enregistrer cette base de données sur disque ?",
-                    QMessageBox.Yes | QMessageBox.No,
-                    QMessageBox.Yes
-                )
-                
-                if response == QMessageBox.Yes:
-                    # Appeler la méthode pour enregistrer la base de données
-                    self._save_database()
             
             # Fermeture de la connexion
             db.close()
@@ -486,16 +497,26 @@ class MainWindow(QMainWindow):
     def _save_database_to_file(self, file_path):
         """Sauvegarde la base de données dans un fichier depuis un thread séparé"""
         try:
-            # Créer une nouvelle instance pour ce thread
+            # Créer une instance pour ce thread qui utilise la base courante (où les données ont été insérées)
             db = DatabaseManager()
-            db.connect()
+            
+            # Se connecter à la base courante (temporaire) pour récupérer les données
+            if self.current_db_path:
+                db.connect(self.current_db_path)
+            else:
+                db.connect()  # Base temporaire par défaut
+                
             db.create_tables()
             
-            # Récupération de toutes les données
+            # Récupération de toutes les données de la base courante
             data = db.get_all_records()
             
             # Fermeture de la connexion temporaire
             db.close()
+            
+            # Si aucune donnée n'a été récupérée, utiliser les données en mémoire
+            if not data and self.current_data:
+                data = self.current_data
             
             # Création d'une nouvelle connection vers le fichier cible
             target_db = DatabaseManager()
@@ -513,6 +534,8 @@ class MainWindow(QMainWindow):
             
             return records_inserted
         except Exception as e:
+            import traceback
+            print(traceback.format_exc())
             raise Exception(f"Erreur lors de la sauvegarde de la base de données: {str(e)}")
     
     def _database_saved(self, result):
@@ -600,16 +623,9 @@ class MainWindow(QMainWindow):
     def _execute_sql_query(self, query):
         """Exécute une requête SQL dans un thread séparé"""
         try:
-            # Créer une nouvelle instance pour ce thread
+            # Utiliser le gestionnaire de base de données avec le chemin actuel de DB
             db = DatabaseManager()
-            
-            # Important : utiliser la même base de données que celle utilisée pour charger les données
-            if hasattr(self, 'current_db_path') and self.current_db_path:
-                db.connect(self.current_db_path)
-            else:
-                db.connect()
-            
-            # S'assurer que les tables existent
+            db.connect(self.current_db_path)  # Utiliser le chemin actuel de la base
             db.create_tables()
             
             # Exécuter la requête SQL
@@ -816,3 +832,202 @@ class MainWindow(QMainWindow):
         
         # Accepter l'événement de fermeture
         event.accept()
+
+    def _data_inserted_handler(self, records_inserted):
+        """Gestionnaire appelé après l'insertion des données dans la base
+        Cette méthode s'exécute dans le thread principal et peut interagir avec l'interface
+        """
+        if records_inserted > 0:
+            self.status_bar.showMessage(f"{records_inserted} enregistrements insérés dans la base de données")
+            
+            # Proposer de sauvegarder la base de données depuis le thread principal
+            response = QMessageBox.question(
+                self,
+                "Données importées",
+                f"{records_inserted} enregistrements ont été insérés dans la base temporaire. Voulez-vous enregistrer cette base de données sur disque ?",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.Yes
+            )
+            
+            if response == QMessageBox.Yes:
+                # Appeler la méthode pour enregistrer la base de données
+                self._save_database()
+        else:
+            self.status_bar.showMessage("Aucun enregistrement inséré")
+            QMessageBox.warning(self, "Information", "Aucun enregistrement n'a pu être inséré dans la base de données.")
+        
+        # Retirer le worker de la liste des workers actifs
+        sender = self.sender()
+        if sender in self.active_workers:
+            self.active_workers.remove(sender)
+
+    def _export_to_mysql(self):
+        """Exporte les données vers une base MySQL"""
+        if not self.current_data:
+            QMessageBox.warning(self, "Erreur", "Aucune donnée à exporter. Veuillez d'abord charger un fichier CSV ou une base de données.")
+            return
+            
+        # Vérification de la disponibilité du module MySQL
+        if not MYSQL_AVAILABLE:
+            QMessageBox.critical(self, "Erreur", "Le module MySQL n'est pas disponible. Veuillez installer mysql-connector-python.")
+            return
+        
+        # Boîte de dialogue de configuration MySQL
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Configuration de l'export MySQL")
+        layout = QFormLayout(dialog)
+        
+        # Champs de configuration
+        host_input = QLineEdit("localhost")
+        port_input = QLineEdit("3306")
+        user_input = QLineEdit("root")
+        password_input = QLineEdit()
+        password_input.setEchoMode(QLineEdit.Password)
+        database_input = QLineEdit("mp3tag_analyzer")
+        table_input = QLineEdit("mp3_tags")
+        
+        layout.addRow("Hôte:", host_input)
+        layout.addRow("Port:", port_input)
+        layout.addRow("Utilisateur:", user_input)
+        layout.addRow("Mot de passe:", password_input)
+        layout.addRow("Base de données:", database_input)
+        layout.addRow("Table:", table_input)
+        
+        # Boutons
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addRow(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            # Récupération des valeurs de configuration
+            config = {
+                'host': host_input.text(),
+                'port': int(port_input.text()),
+                'user': user_input.text(),
+                'password': password_input.text(),
+                'database': database_input.text(),
+                'table': table_input.text()
+            }
+            
+            # Mise à jour de la barre de statut et affichage de la barre de progression
+            self.status_bar.showMessage("Exportation vers MySQL en cours...")
+            self.progress_bar.setVisible(True)
+            
+            # Création du worker pour l'exportation
+            worker = Worker(lambda: self._do_mysql_export(config))
+            worker.finished.connect(lambda count: self._export_completed("MySQL", count))
+            worker.error.connect(self._handle_error)
+            worker.start()
+            self.active_workers.append(worker)
+    
+    def _export_to_postgres(self):
+        """Exporte les données vers une base PostgreSQL"""
+        if not self.current_data:
+            QMessageBox.warning(self, "Erreur", "Aucune donnée à exporter. Veuillez d'abord charger un fichier CSV ou une base de données.")
+            return
+            
+        # Vérification de la disponibilité du module PostgreSQL
+        if not POSTGRES_AVAILABLE:
+            QMessageBox.critical(self, "Erreur", "Le module PostgreSQL n'est pas disponible. Veuillez installer psycopg2-binary.")
+            return
+        
+        # Boîte de dialogue de configuration PostgreSQL
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Configuration de l'export PostgreSQL")
+        layout = QFormLayout(dialog)
+        
+        # Champs de configuration
+        host_input = QLineEdit("localhost")
+        port_input = QLineEdit("5432")
+        user_input = QLineEdit("postgres")
+        password_input = QLineEdit()
+        password_input.setEchoMode(QLineEdit.Password)
+        database_input = QLineEdit("mp3tag_analyzer")
+        table_input = QLineEdit("mp3_tags")
+        
+        layout.addRow("Hôte:", host_input)
+        layout.addRow("Port:", port_input)
+        layout.addRow("Utilisateur:", user_input)
+        layout.addRow("Mot de passe:", password_input)
+        layout.addRow("Base de données:", database_input)
+        layout.addRow("Table:", table_input)
+        
+        # Boutons
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addRow(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            # Récupération des valeurs de configuration
+            config = {
+                'host': host_input.text(),
+                'port': int(port_input.text()),
+                'user': user_input.text(),
+                'password': password_input.text(),
+                'database': database_input.text(),
+                'table': table_input.text()
+            }
+            
+            # Mise à jour de la barre de statut et affichage de la barre de progression
+            self.status_bar.showMessage("Exportation vers PostgreSQL en cours...")
+            self.progress_bar.setVisible(True)
+            
+            # Création du worker pour l'exportation
+            worker = Worker(lambda: self._do_postgres_export(config))
+            worker.finished.connect(lambda count: self._export_completed("PostgreSQL", count))
+            worker.error.connect(self._handle_error)
+            worker.start()
+            self.active_workers.append(worker)
+    
+    def _do_mysql_export(self, config):
+        """Effectue l'exportation vers MySQL dans un thread séparé"""
+        try:
+            exporter = DBExporter()
+            
+            # Si nous avons un chemin de base de données SQLite, l'utiliser pour l'export
+            if self.current_db_path:
+                return exporter.export_from_sqlite(self.current_db_path, 'mysql', config)
+            else:
+                # Sinon, utiliser les données en mémoire
+                return exporter.export_to_mysql(self.current_data, config)
+        except Exception as e:
+            raise Exception(f"Erreur lors de l'exportation vers MySQL: {str(e)}")
+    
+    def _do_postgres_export(self, config):
+        """Effectue l'exportation vers PostgreSQL dans un thread séparé"""
+        try:
+            exporter = DBExporter()
+            
+            # Si nous avons un chemin de base de données SQLite, l'utiliser pour l'export
+            if self.current_db_path:
+                return exporter.export_from_sqlite(self.current_db_path, 'postgres', config)
+            else:
+                # Sinon, utiliser les données en mémoire
+                return exporter.export_to_postgres(self.current_data, config)
+        except Exception as e:
+            raise Exception(f"Erreur lors de l'exportation vers PostgreSQL: {str(e)}")
+    
+    def _export_completed(self, export_type, count):
+        """Gestionnaire appelé après la fin de l'exportation"""
+        self.progress_bar.setVisible(False)
+        
+        if count > 0:
+            self.status_bar.showMessage(f"{count} enregistrements exportés vers {export_type}")
+            QMessageBox.information(self, "Exportation réussie", f"{count} enregistrements ont été exportés avec succès vers {export_type}.")
+        else:
+            self.status_bar.showMessage(f"Aucun enregistrement exporté vers {export_type}")
+            QMessageBox.warning(self, "Information", f"Aucun enregistrement n'a pu être exporté vers {export_type}.")
+        
+        # Retirer le worker de la liste des workers actifs
+        sender = self.sender()
+        if sender in self.active_workers:
+            self.active_workers.remove(sender)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())

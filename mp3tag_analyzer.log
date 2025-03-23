@@ -575,3 +575,157 @@
 2025-03-23 22:52:32,591 - mp3tag_analyzer.db - INFO - Tables créées avec succès
 2025-03-23 22:52:32,591 - mp3tag_analyzer.db - INFO - Tables créées avec succès
 2025-03-23 22:52:32,639 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:04:22,785 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:04:22,825 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:04:22,825 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:04:22,825 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:04:38,025 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv: utf-16-le
+2025-03-23 23:04:38,025 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:04:38,025 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:04:38,029 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Album', 'Genre', 'Comment', 'Keywords', 'Mood', 'Usage', 'Song', 'RelativePath', 'Filename', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'PlayCounter']
+2025-03-23 23:04:38,078 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:04:38,740 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:04:38,740 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:04:38,740 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:04:39,009 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:07:19,466 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:07:19,506 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:07:19,506 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:07:19,506 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:07:26,142 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 23:07:26,142 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:07:26,142 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:07:26,142 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 23:07:26,206 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:07:27,191 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:07:27,192 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:07:27,192 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:07:27,493 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:12:36,949 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:12:36,989 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:12:36,990 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:12:36,990 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:12:43,652 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 23:12:43,653 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:12:43,653 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:12:43,653 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 23:12:43,723 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:12:44,798 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:12:44,798 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:12:44,798 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:12:45,112 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:12:45,112 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:13:02,784 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:13:02,784 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:02,784 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:13:02,784 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 full.db
+2025-03-23 23:13:02,805 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:02,805 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:02,805 - mp3tag_analyzer.db - INFO - 0 enregistrements insérés avec succès
+2025-03-23 23:13:02,805 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:13:11,443 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:13:49,167 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:13:49,211 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:13:49,212 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:49,213 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:13:57,344 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv: utf-16-le
+2025-03-23 23:13:57,344 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:13:57,349 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:13:57,349 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Album', 'Genre', 'Comment', 'Keywords', 'Mood', 'Usage', 'Song', 'RelativePath', 'Filename', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'PlayCounter']
+2025-03-23 23:13:57,398 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:13:58,018 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:13:58,018 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:58,018 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:13:58,317 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:13:58,317 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:14:20,188 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:14:20,188 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:14:20,188 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:14:20,188 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 light.db
+2025-03-23 23:14:20,212 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:14:20,212 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:14:20,212 - mp3tag_analyzer.db - INFO - 0 enregistrements insérés avec succès
+2025-03-23 23:14:20,212 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:16:20,113 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:16:26,175 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:16:26,214 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:16:26,214 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:16:26,214 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:16:35,700 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 23:16:35,700 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:16:35,707 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:16:35,707 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 23:16:35,771 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:16:36,803 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:16:36,803 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:16:36,803 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:16:37,113 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:16:37,113 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:01,752 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:17:01,752 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:01,752 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:01,760 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 full.db
+2025-03-23 23:17:01,781 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:01,781 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:02,131 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:17:02,131 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:16,027 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:24,796 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:17:24,836 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:17:24,837 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:24,837 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:17:34,532 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:34,532 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 full.db
+2025-03-23 23:17:44,601 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:17:47,496 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:17:47,536 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:17:47,537 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:47,537 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:17:55,543 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv: utf-16-le
+2025-03-23 23:17:55,543 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:17:55,543 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:17:55,546 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Album', 'Genre', 'Comment', 'Keywords', 'Mood', 'Usage', 'Song', 'RelativePath', 'Filename', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'PlayCounter']
+2025-03-23 23:17:55,596 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml light v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:17:56,293 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:17:56,295 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:56,295 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:17:56,571 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:17:56,571 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:10,106 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:18:10,106 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:10,106 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:10,113 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 light.db
+2025-03-23 23:18:10,113 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:10,113 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:10,421 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:18:10,421 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:18,637 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:23,878 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:18:23,923 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:18:23,923 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:23,923 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:18:34,001 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:34,001 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 light.db
+2025-03-23 23:18:49,730 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 light.db
+2025-03-23 23:18:49,731 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:49,734 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:18:57,716 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3 light.db
+2025-03-23 23:18:57,717 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:18:57,722 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:27:06,058 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:27:56,809 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:29:26,378 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 23:29:27,057 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:29:27,059 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:29:27,060 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 23:30:05,891 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 23:30:05,891 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 23:30:05,894 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 23:30:05,895 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 23:30:05,960 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 23:30:07,035 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 23:30:07,040 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:30:07,040 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 23:30:07,340 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 23:30:07,340 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 23:31:19,652 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée

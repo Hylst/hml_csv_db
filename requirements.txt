@@ -1,2 +1,4 @@
 PyQt5==5.15.9
 chardet==5.2.0
+mysql-connector-python==8.1.0
+psycopg2-binary==2.9.7

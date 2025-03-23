@@ -47,7 +47,27 @@
   - Formats audio
   - Dates
 - Possibilité de créer et sauvegarder ses propres requêtes SQL avec choix de catégorie
+- Support de différentes structures de fichiers CSV (colonnes variables, ordre différent)
+- Amélioration de la détection et normalisation des en-têtes de colonnes
+- Gestion plus robuste des importations avec validation dynamique des colonnes
 
 ### Correction
 - Correction du bug "no such table: mp3_files" dans l'exécution des requêtes SQL
 - Optimisation de l'affichage des données dans le tableau
+- Résolution des problèmes d'importation qui faisaient que le programme se figeait avec certains fichiers CSV
+- Correction des problèmes de requêtes SQL qui ne renvoyaient aucun résultat
+- Améliorations du processus d'importation pour tolérer des structures de colonnes différentes
+
+## v1.4.0 (23/03/2025)
+
+### Ajout
+- Fonctionnalité d'export vers des bases de données externes:
+  - Support de MySQL via mysql-connector-python
+  - Support de PostgreSQL via psycopg2
+- Interface de configuration des paramètres de connexion aux bases de données
+- Traitement asynchrone des exports pour éviter le blocage de l'interface
+
+### Correction
+- Correction du problème de sauvegarde de la base de données qui n'enregistrait pas les données
+- Amélioration de la gestion des erreurs lors de l'exportation
+- Optimisation du processus d'enregistrement de la base de données

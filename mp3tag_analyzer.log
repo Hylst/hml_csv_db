@@ -1,0 +1,539 @@
+2025-03-23 21:28:17,383 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:28:17,386 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:28:17,386 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:31:10,192 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:31:10,192 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:31:10,193 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:31:21,719 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: UTF-16
+2025-03-23 21:31:21,719 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: UTF-16
+2025-03-23 21:31:21,722 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage UTF-16
+2025-03-23 21:31:21,723 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16
+2025-03-23 21:31:21,723 - mp3tag_analyzer.csv - WARNING - Erreur d'encodage avec utf-8, essai avec un autre encodage
+2025-03-23 21:31:21,727 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage iso-8859-1
+2025-03-23 21:31:21,727 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage latin1
+2025-03-23 21:31:21,730 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16-le
+2025-03-23 21:31:23,559 - mp3tag_analyzer.csv - ERROR - Erreur lors de l'analyse du fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec l'encodage utf-16-be: field larger than field limit (131072)
+2025-03-23 21:31:23,559 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:31:41,722 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: UTF-16
+2025-03-23 21:31:41,723 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: UTF-16
+2025-03-23 21:31:41,724 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage UTF-16
+2025-03-23 21:31:41,724 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16
+2025-03-23 21:31:41,724 - mp3tag_analyzer.csv - WARNING - Erreur d'encodage avec utf-8, essai avec un autre encodage
+2025-03-23 21:31:41,724 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage iso-8859-1
+2025-03-23 21:31:41,724 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage latin1
+2025-03-23 21:31:41,727 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16-le
+2025-03-23 21:31:43,540 - mp3tag_analyzer.csv - ERROR - Erreur lors de l'analyse du fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec l'encodage utf-16-be: field larger than field limit (131072)
+2025-03-23 21:31:43,544 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:32:06,580 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: UTF-16
+2025-03-23 21:32:06,580 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: UTF-16
+2025-03-23 21:32:06,580 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage UTF-16
+2025-03-23 21:32:06,583 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16
+2025-03-23 21:32:06,583 - mp3tag_analyzer.csv - WARNING - Erreur d'encodage avec utf-8, essai avec un autre encodage
+2025-03-23 21:32:06,583 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage iso-8859-1
+2025-03-23 21:32:06,583 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage latin1
+2025-03-23 21:32:06,583 - mp3tag_analyzer.csv - ERROR - Format d'en-tête invalide avec l'encodage utf-16-le
+2025-03-23 21:32:08,386 - mp3tag_analyzer.csv - ERROR - Erreur lors de l'analyse du fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec l'encodage utf-16-be: field larger than field limit (131072)
+2025-03-23 21:32:08,386 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:33:15,366 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:35:25,372 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:35:25,372 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:35:25,373 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-8
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - WARNING - Erreur de décodage avec l'encodage utf-8: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: iso-8859-1
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: windows-1252
+2025-03-23 21:35:33,731 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:35:56,575 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16
+2025-03-23 21:35:56,575 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:35:56,580 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-8
+2025-03-23 21:35:56,580 - mp3tag_analyzer.csv - WARNING - Erreur de décodage avec l'encodage utf-8: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-03-23 21:35:56,580 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: iso-8859-1
+2025-03-23 21:35:56,580 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: windows-1252
+2025-03-23 21:35:56,580 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:38:03,888 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:38:04,623 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:38:04,623 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:38:04,623 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:38:17,725 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16
+2025-03-23 21:38:17,725 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:38:17,747 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:38:17,747 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage utf-16 et le séparateur ;
+2025-03-23 21:38:17,747 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-8
+2025-03-23 21:38:17,750 - mp3tag_analyzer.csv - WARNING - Erreur de décodage avec l'encodage utf-8: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-03-23 21:38:17,750 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: iso-8859-1
+2025-03-23 21:38:17,769 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:38:17,769 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage iso-8859-1 et le séparateur ;
+2025-03-23 21:38:17,769 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: windows-1252
+2025-03-23 21:38:17,794 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:38:17,794 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage windows-1252 et le séparateur ;
+2025-03-23 21:38:17,794 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:41:01,801 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:41:02,538 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:41:20,579 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:41:20,627 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:41:20,628 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:41:20,628 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:41:38,519 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16
+2025-03-23 21:41:38,519 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:41:38,539 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:38,539 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage utf-16 et le séparateur ;
+2025-03-23 21:41:38,540 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-8
+2025-03-23 21:41:38,541 - mp3tag_analyzer.csv - WARNING - Erreur de décodage avec l'encodage utf-8: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-03-23 21:41:38,541 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: iso-8859-1
+2025-03-23 21:41:38,565 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:38,566 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage iso-8859-1 et le séparateur ;
+2025-03-23 21:41:38,566 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: windows-1252
+2025-03-23 21:41:38,595 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:38,595 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage windows-1252 et le séparateur ;
+2025-03-23 21:41:38,595 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv avec les encodages disponibles
+2025-03-23 21:41:47,203 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml light.csv: utf-16
+2025-03-23 21:41:47,204 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:41:47,218 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:47,218 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage utf-16 et le séparateur ;
+2025-03-23 21:41:47,219 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-8
+2025-03-23 21:41:47,219 - mp3tag_analyzer.csv - WARNING - Erreur de décodage avec l'encodage utf-8: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2025-03-23 21:41:47,220 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: iso-8859-1
+2025-03-23 21:41:47,232 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:47,232 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage iso-8859-1 et le séparateur ;
+2025-03-23 21:41:47,232 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: windows-1252
+2025-03-23 21:41:47,255 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:41:47,255 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide avec l'encodage windows-1252 et le séparateur ;
+2025-03-23 21:41:47,255 - mp3tag_analyzer.csv - ERROR - Impossible de lire le fichier C:/Hylst Meilleures Créations AI/musicotheque/hml light.csv avec les encodages disponibles
+2025-03-23 21:41:51,478 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:44:55,115 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:44:55,159 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:44:55,159 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:44:55,160 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:45:02,421 - mp3tag_analyzer.csv - INFO - Encodage détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16
+2025-03-23 21:45:02,421 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16
+2025-03-23 21:45:02,428 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:45:02,428 - mp3tag_analyzer.csv - ERROR - Format d'entête invalide: 
+2025-03-23 21:50:19,565 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:50:23,064 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:50:23,106 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:50:23,106 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:50:23,106 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:50:30,146 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 21:50:30,146 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 21:50:30,150 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:50:30,150 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 21:50:30,156 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 21:50:30,156 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 21:50:30,157 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 21:50:30,157 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 21:50:30,158 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 21:50:30,158 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 21:50:30,159 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 21:50:30,159 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 21:50:30,159 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 21:50:30,159 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 21:50:30,159 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 21:50:30,161 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 21:50:30,161 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 21:50:30,161 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 21:50:30,162 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 21:50:30,162 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 21:50:30,163 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:50:30,163 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:50:30,164 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 21:50:30,164 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 21:50:30,164 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 21:50:30,164 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 21:50:30,165 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 21:50:30,166 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 21:50:30,170 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 21:50:30,170 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 21:50:30,240 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 21:50:31,000 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:50:31,000 - mp3tag_analyzer.db - ERROR - Erreur lors de l'insertion des données: table mp3_files has no column named audiolength
+2025-03-23 21:50:48,816 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:53:39,124 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:53:39,175 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:53:39,176 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:53:39,176 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:53:46,485 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 21:53:46,485 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 21:53:46,486 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:53:46,490 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 21:53:46,490 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 21:53:46,490 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 21:53:46,490 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 21:53:46,492 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 21:53:46,492 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 21:53:46,493 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 21:53:46,497 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 21:53:46,502 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 21:53:46,502 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 21:53:46,502 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 21:53:46,502 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 21:53:46,502 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 21:53:46,504 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 21:53:46,504 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 21:53:46,504 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 21:53:46,570 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 21:53:47,356 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:53:47,419 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 21:55:01,558 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:55:01,558 - mp3tag_analyzer.db - ERROR - Erreur lors de la sauvegarde de la base de données: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 10276 and this is thread id 3124.
+2025-03-23 21:55:06,183 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:58:22,163 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 21:58:22,203 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:58:22,206 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:58:22,206 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 21:58:31,070 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 21:58:31,072 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 21:58:31,074 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 21:58:31,079 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 21:58:31,079 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 21:58:31,080 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 21:58:31,085 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 21:58:31,085 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 21:58:31,086 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 21:58:31,086 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 21:58:31,087 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 21:58:31,087 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 21:58:31,087 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 21:58:31,087 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 21:58:31,087 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 21:58:31,089 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 21:58:31,089 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 21:58:31,089 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 21:58:31,089 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 21:58:31,089 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 21:58:31,091 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 21:58:31,091 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 21:58:31,180 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 21:58:32,212 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 21:58:32,214 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:58:32,273 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 21:58:32,273 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 21:59:42,115 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 21:59:42,135 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 21:59:42,225 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 21:59:42,227 - mp3tag_analyzer.db - INFO - Base de données enregistrée avec succès dans C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:07:10,458 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:07:15,584 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:07:15,628 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:07:15,628 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:07:15,628 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:07:23,191 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 22:07:23,191 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 22:07:23,191 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 22:07:23,194 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 22:07:23,200 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 22:07:23,200 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 22:07:23,200 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 22:07:23,201 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 22:07:23,201 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 22:07:23,201 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 22:07:23,202 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 22:07:23,205 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 22:07:23,208 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 22:07:23,275 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 22:07:24,308 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:07:24,308 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:07:24,366 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 22:07:24,366 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:07:59,539 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:08:17,723 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:08:17,723 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:08:17,823 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 22:08:17,823 - mp3tag_analyzer.db - INFO - Base de données enregistrée avec succès dans C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:08:23,682 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:10:38,997 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:15:48,667 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:16:04,644 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:16:04,684 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:16:04,684 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:16:04,684 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:16:18,058 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:16:18,059 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 22:17:04,516 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 22:17:04,522 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 22:17:04,522 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 22:17:04,522 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 22:17:04,523 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 22:17:04,524 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 22:17:04,524 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 22:17:04,525 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 22:17:04,525 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 22:17:04,525 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:17:04,526 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:17:04,526 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 22:17:04,526 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 22:17:04,526 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 22:17:04,527 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 22:17:04,527 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 22:17:04,528 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 22:17:04,529 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 22:17:04,534 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 22:17:04,601 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 22:17:05,822 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:17:05,822 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:17:05,882 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 22:17:05,882 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:17:34,102 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:17:43,511 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:17:43,552 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:17:43,553 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:17:43,553 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:17:50,683 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 22:17:50,683 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 22:17:50,683 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 22:17:50,687 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 22:17:50,689 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 22:17:50,689 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 22:17:50,690 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 22:17:50,690 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 22:17:50,690 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 22:17:50,690 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 22:17:50,690 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 22:17:50,692 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 22:17:50,692 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 22:17:50,692 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:17:50,693 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 22:17:50,694 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 22:17:50,696 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 22:17:50,696 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 22:17:50,696 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 22:17:50,696 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 22:17:50,696 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 22:17:50,698 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 22:17:50,698 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 22:17:50,699 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 22:17:50,699 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 22:17:50,699 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 22:17:50,700 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 22:17:50,700 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 22:17:50,757 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4540 enregistrements trouvés.
+2025-03-23 22:17:51,718 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:17:51,718 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:17:51,787 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 22:17:51,787 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:18:10,330 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:18:10,345 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:18:10,446 - mp3tag_analyzer.db - INFO - 4540 enregistrements insérés avec succès
+2025-03-23 22:18:10,446 - mp3tag_analyzer.db - INFO - Base de données enregistrée avec succès dans C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:19:11,365 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:19:11,365 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:19:11,367 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:19:24,021 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:19:24,023 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:19:24,024 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:19:29,329 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:19:29,329 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:19:29,330 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:19:42,390 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:19:42,391 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:19:42,392 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:19:56,065 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:20:03,960 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:20:03,999 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:20:03,999 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:20:03,999 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:20:10,663 - mp3tag_analyzer.csv - INFO - BOM détecté pour C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv: utf-16-le
+2025-03-23 22:20:10,663 - mp3tag_analyzer.csv - INFO - Tentative de lecture avec l'encodage: utf-16-le
+2025-03-23 22:20:10,663 - mp3tag_analyzer.csv - INFO - Séparateur détecté: ;
+2025-03-23 22:20:10,663 - mp3tag_analyzer.csv - INFO - Entêtes brutes: ['Title', 'Artist', 'Album', 'Year', 'Genre', 'Comment', 'ISRC', 'Language', 'AudioLength', 'FileSize', 'Crc', 'FileCreateDate', 'LastModified', 'RelativePath', 'Filename', 'Extension', 'Directory', 'ParentDirectory', 'Keywords', 'Mood', 'Usage', 'Song', 'ModeStereo', 'BPM', 'Codec', 'Bitrate', 'Samplerate', 'VBR', 'TagType', 'CoverDescription', 'CoverSize', 'CoverType', 'CoverMime', 'CoverHeight', 'CoverWidth', 'UnSyncLyrics', 'SrcFix', 'PlayCounter']
+2025-03-23 22:20:10,663 - mp3tag_analyzer.csv - INFO - Entête 0: 'Title', longueur=5, octets=[84, 105, 116, 108, 101]
+2025-03-23 22:20:10,667 - mp3tag_analyzer.csv - INFO - Entête 1: 'Artist', longueur=6, octets=[65, 114, 116, 105, 115, 116]
+2025-03-23 22:20:10,667 - mp3tag_analyzer.csv - INFO - Entête 2: 'Album', longueur=5, octets=[65, 108, 98, 117, 109]
+2025-03-23 22:20:10,667 - mp3tag_analyzer.csv - INFO - Entête 3: 'Year', longueur=4, octets=[89, 101, 97, 114]
+2025-03-23 22:20:10,668 - mp3tag_analyzer.csv - INFO - Entête 4: 'Genre', longueur=5, octets=[71, 101, 110, 114, 101]
+2025-03-23 22:20:10,668 - mp3tag_analyzer.csv - INFO - Entête 5: 'Comment', longueur=7, octets=[67, 111, 109, 109, 101, 110, 116]
+2025-03-23 22:20:10,668 - mp3tag_analyzer.csv - INFO - Entête 6: 'ISRC', longueur=4, octets=[73, 83, 82, 67]
+2025-03-23 22:20:10,669 - mp3tag_analyzer.csv - INFO - Entête 7: 'Language', longueur=8, octets=[76, 97, 110, 103, 117, 97, 103, 101]
+2025-03-23 22:20:10,669 - mp3tag_analyzer.csv - INFO - Entête 8: 'AudioLength', longueur=11, octets=[65, 117, 100, 105, 111, 76, 101, 110, 103, 116, 104]
+2025-03-23 22:20:10,669 - mp3tag_analyzer.csv - INFO - Entête 9: 'FileSize', longueur=8, octets=[70, 105, 108, 101, 83, 105, 122, 101]
+2025-03-23 22:20:10,669 - mp3tag_analyzer.csv - INFO - Entête 10: 'Crc', longueur=3, octets=[67, 114, 99]
+2025-03-23 22:20:10,670 - mp3tag_analyzer.csv - INFO - Entête 11: 'FileCreateDate', longueur=14, octets=[70, 105, 108, 101, 67, 114, 101, 97, 116, 101, 68, 97, 116, 101]
+2025-03-23 22:20:10,670 - mp3tag_analyzer.csv - INFO - Entête 12: 'LastModified', longueur=12, octets=[76, 97, 115, 116, 77, 111, 100, 105, 102, 105, 101, 100]
+2025-03-23 22:20:10,670 - mp3tag_analyzer.csv - INFO - Entête 13: 'RelativePath', longueur=12, octets=[82, 101, 108, 97, 116, 105, 118, 101, 80, 97, 116, 104]
+2025-03-23 22:20:10,671 - mp3tag_analyzer.csv - INFO - Entête 14: 'Filename', longueur=8, octets=[70, 105, 108, 101, 110, 97, 109, 101]
+2025-03-23 22:20:10,671 - mp3tag_analyzer.csv - INFO - Entête 15: 'Extension', longueur=9, octets=[69, 120, 116, 101, 110, 115, 105, 111, 110]
+2025-03-23 22:20:10,672 - mp3tag_analyzer.csv - INFO - Entête 16: 'Directory', longueur=9, octets=[68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:20:10,672 - mp3tag_analyzer.csv - INFO - Entête 17: 'ParentDirectory', longueur=15, octets=[80, 97, 114, 101, 110, 116, 68, 105, 114, 101, 99, 116, 111, 114, 121]
+2025-03-23 22:20:10,672 - mp3tag_analyzer.csv - INFO - Entête 18: 'Keywords', longueur=8, octets=[75, 101, 121, 119, 111, 114, 100, 115]
+2025-03-23 22:20:10,672 - mp3tag_analyzer.csv - INFO - Entête 19: 'Mood', longueur=4, octets=[77, 111, 111, 100]
+2025-03-23 22:20:10,673 - mp3tag_analyzer.csv - INFO - Entête 20: 'Usage', longueur=5, octets=[85, 115, 97, 103, 101]
+2025-03-23 22:20:10,673 - mp3tag_analyzer.csv - INFO - Entête 21: 'Song', longueur=4, octets=[83, 111, 110, 103]
+2025-03-23 22:20:10,673 - mp3tag_analyzer.csv - INFO - Entête 22: 'ModeStereo', longueur=10, octets=[77, 111, 100, 101, 83, 116, 101, 114, 101, 111]
+2025-03-23 22:20:10,673 - mp3tag_analyzer.csv - INFO - Entête 23: 'BPM', longueur=3, octets=[66, 80, 77]
+2025-03-23 22:20:10,673 - mp3tag_analyzer.csv - INFO - Entête 24: 'Codec', longueur=5, octets=[67, 111, 100, 101, 99]
+2025-03-23 22:20:10,674 - mp3tag_analyzer.csv - INFO - Entête 25: 'Bitrate', longueur=7, octets=[66, 105, 116, 114, 97, 116, 101]
+2025-03-23 22:20:10,674 - mp3tag_analyzer.csv - INFO - Entête 26: 'Samplerate', longueur=10, octets=[83, 97, 109, 112, 108, 101, 114, 97, 116, 101]
+2025-03-23 22:20:10,674 - mp3tag_analyzer.csv - INFO - Entête 27: 'VBR', longueur=3, octets=[86, 66, 82]
+2025-03-23 22:20:10,674 - mp3tag_analyzer.csv - INFO - Entête 28: 'TagType', longueur=7, octets=[84, 97, 103, 84, 121, 112, 101]
+2025-03-23 22:20:10,674 - mp3tag_analyzer.csv - INFO - Entête 29: 'CoverDescription', longueur=16, octets=[67, 111, 118, 101, 114, 68, 101, 115, 99, 114, 105, 112, 116, 105, 111, 110]
+2025-03-23 22:20:10,675 - mp3tag_analyzer.csv - INFO - Entête 30: 'CoverSize', longueur=9, octets=[67, 111, 118, 101, 114, 83, 105, 122, 101]
+2025-03-23 22:20:10,675 - mp3tag_analyzer.csv - INFO - Entête 31: 'CoverType', longueur=9, octets=[67, 111, 118, 101, 114, 84, 121, 112, 101]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 32: 'CoverMime', longueur=9, octets=[67, 111, 118, 101, 114, 77, 105, 109, 101]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 33: 'CoverHeight', longueur=11, octets=[67, 111, 118, 101, 114, 72, 101, 105, 103, 104, 116]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 34: 'CoverWidth', longueur=10, octets=[67, 111, 118, 101, 114, 87, 105, 100, 116, 104]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 35: 'UnSyncLyrics', longueur=12, octets=[85, 110, 83, 121, 110, 99, 76, 121, 114, 105, 99, 115]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 36: 'SrcFix', longueur=6, octets=[83, 114, 99, 70, 105, 120]
+2025-03-23 22:20:10,676 - mp3tag_analyzer.csv - INFO - Entête 37: 'PlayCounter', longueur=11, octets=[80, 108, 97, 121, 67, 111, 117, 110, 116, 101, 114]
+2025-03-23 22:20:10,738 - mp3tag_analyzer.csv - INFO - Fichier C:/Hylst Meilleures Créations AI/musicotheque/hml full v2.csv lu avec succès. 4539 enregistrements trouvés.
+2025-03-23 22:20:11,730 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:20:11,730 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:20:11,793 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 22:20:11,794 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:20:22,862 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:20:22,878 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:20:22,969 - mp3tag_analyzer.db - INFO - 4539 enregistrements insérés avec succès
+2025-03-23 22:20:22,969 - mp3tag_analyzer.db - INFO - Base de données enregistrée avec succès dans C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:20:41,101 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:20:45,074 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:20:45,110 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:20:45,115 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:20:45,115 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:20:51,101 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:20:51,101 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:21:44,310 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:21:44,311 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:21:44,311 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:21:50,195 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:21:50,196 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:21:50,196 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:21:59,663 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:21:59,664 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:21:59,664 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:22:38,060 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:22:38,060 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:22:38,060 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:29:08,809 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:29:12,738 - root - INFO - Limite de taille des champs CSV définie à 922337203
+2025-03-23 22:29:12,778 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: None
+2025-03-23 22:29:12,778 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:29:12,781 - mp3tag_analyzer.gui - INFO - Interface initialisée
+2025-03-23 22:29:21,956 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:29:21,957 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:30:51,401 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:30:51,402 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:30:51,406 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée
+2025-03-23 22:31:06,394 - mp3tag_analyzer.db - INFO - Connexion à la base de données réussie: C:/Hylst Meilleures Créations AI/musicotheque/hmlsqlite3 v3.db
+2025-03-23 22:31:06,396 - mp3tag_analyzer.db - INFO - Tables créées avec succès
+2025-03-23 22:31:06,403 - mp3tag_analyzer.db - INFO - Connexion à la base de données fermée

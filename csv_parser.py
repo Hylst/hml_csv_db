@@ -37,7 +37,8 @@ class CSVParser:
     
     def __init__(self):
         self.logger = logging.getLogger('mp3tag_analyzer.csv')
-        # Entêtes attendues dans un fichier MP3tag
+        # Entêtes possibles dans un fichier MP3tag (liste non exhaustive)
+        # Cette liste sert à la validation mais n'est plus obligatoire
         self.expected_headers = [
             "Title", "Artist", "Album", "Year", "Genre", "Comment", "ISRC", "Language", 
             "AudioLength", "FileSize", "Crc", "FileCreateDate", "LastModified", "RelativePath", 
@@ -110,8 +111,8 @@ class CSVParser:
         encoding = self.detect_encoding(file_path)
         self.logger.info(f"Tentative de lecture avec l'encodage: {encoding}")
         
+        # Méthode directe de lecture CSV avec l'encodage détecté
         try:
-            # Méthode directe de lecture CSV avec l'encodage détecté
             with open(file_path, 'r', encoding=encoding, newline='') as csvfile:
                 # Essayer de déterminer le séparateur
                 sample = csvfile.read(1024)  # Lire un échantillon
@@ -140,13 +141,30 @@ class CSVParser:
                     
                     # Déboguer les entêtes
                     self.logger.info(f"Entêtes brutes: {headers}")
-                    for i, h in enumerate(headers):
-                        self.logger.info(f"Entête {i}: '{h}', longueur={len(h)}, octets={[ord(c) for c in h]}")
                     
-                    # Vérifier la validité des entêtes
-                    if not headers or len(headers) <= 1 or not any(h for h in headers if h):
+                    # Vérifier la validité des entêtes (au moins une entête valide)
+                    valid_headers = [h for h in headers if h.strip()]
+                    if not valid_headers:
                         self.logger.error(f"Format d'entête invalide: {headers}")
                         return None, None
+                    
+                    # Supprimer les entêtes vides ou dupliquées
+                    clean_headers = []
+                    seen = set()
+                    for i, h in enumerate(headers):
+                        if not h.strip(): 
+                            # Remplacer les entêtes vides par un nom générique
+                            h = f"Column_{i}"
+                        # Gérer les doublons
+                        if h in seen:
+                            j = 1
+                            while f"{h}_{j}" in seen:
+                                j += 1
+                            h = f"{h}_{j}"
+                        seen.add(h)
+                        clean_headers.append(h)
+                    
+                    headers = clean_headers
                 except StopIteration:
                     self.logger.error(f"Fichier {file_path} vide ou mal formatté")
                     return None, None
@@ -166,8 +184,7 @@ class CSVParser:
                     # Créer un dictionnaire pour la ligne
                     row_dict = {}
                     for i, h in enumerate(headers):
-                        if h:  # Ignorer les entêtes vides
-                            row_dict[h] = row[i]
+                        row_dict[h] = row[i]
                     
                     if row_dict:  # Ajouter seulement si la ligne a des données
                         data.append(row_dict)
@@ -182,104 +199,71 @@ class CSVParser:
         except UnicodeDecodeError as e:
             self.logger.error(f"Erreur de décodage avec l'encodage {encoding}: {e}")
             
-            # Essayer une méthode alternative avec lecture binaire et décodage manuel
-            try:
-                self.logger.info("Tentative de lecture alternative...")
-                with open(file_path, 'rb') as f:
-                    raw_data = f.read()
-                
-                # Essayer différents encodages
-                for alt_encoding in [encoding, 'utf-16-le', 'utf-16-be', 'utf-8', 'windows-1252']:
+            # Essayer avec d'autres encodages en cas d'échec
+            for alt_encoding in ['utf-16-le', 'utf-16-be', 'utf-8', 'windows-1252', 'iso-8859-1']:
+                if alt_encoding != encoding:
                     try:
-                        text = raw_data.decode(alt_encoding.replace('-sig', ''), errors='replace')
-                        lines = text.splitlines()
-                        
-                        if not lines:
-                            continue
-                        
-                        # Traiter la première ligne (entêtes)
-                        header_line = lines[0].strip().replace('\ufeff', '')
-                        
-                        # Déterminer le séparateur
-                        delimiter = ';'  # MP3tag utilise typiquement des points-virgules
-                        if ';' not in header_line and ',' in header_line:
-                            delimiter = ','
-                        
-                        headers = [h.strip() for h in header_line.split(delimiter)]
-                        
-                        # Vérifier que les entêtes sont valides
-                        if len(headers) <= 1 or not any(h for h in headers if h):
-                            continue
-                        
-                        # Traiter les lignes de données
-                        data = []
-                        for line in lines[1:]:
-                            if not line.strip():
-                                continue
-                            
-                            fields = self._split_csv_line(line.strip(), delimiter)
-                            
-                            # Ajuster la taille de la ligne si nécessaire
-                            if len(fields) < len(headers):
-                                fields.extend([''] * (len(headers) - len(fields)))
-                            elif len(fields) > len(headers):
-                                fields = fields[:len(headers)]
-                            
-                            # Créer un dictionnaire pour la ligne
-                            row_dict = {}
+                        self.logger.info(f"Tentative avec l'encodage alternatif: {alt_encoding}")
+                        with open(file_path, 'r', encoding=alt_encoding, newline='') as csvfile:
+                            # Même traitement que ci-dessus
+                            sample = csvfile.read(1024)  
+                            csvfile.seek(0)  
+                            delimiter = ';'  
+                            if ';' not in sample and ',' in sample:
+                                delimiter = ','
+                            self.logger.info(f"Séparateur détecté: {delimiter}")
+                            try:
+                                dialect = csv.Sniffer().sniff(sample, delimiters=delimiter)
+                                reader = csv.reader(csvfile, dialect)
+                            except Exception:
+                                reader = csv.reader(csvfile, delimiter=delimiter)
+                            headers = next(reader)
+                            headers = [h.strip().replace('\ufeff', '') for h in headers]
+                            self.logger.info(f"Entêtes brutes: {headers}")
+                            valid_headers = [h for h in headers if h.strip()]
+                            if not valid_headers:
+                                self.logger.error(f"Format d'entête invalide: {headers}")
+                                return None, None
+                            clean_headers = []
+                            seen = set()
                             for i, h in enumerate(headers):
-                                if h:  # Ignorer les entêtes vides
-                                    row_dict[h] = fields[i]
-                            
-                            if row_dict:  # Ajouter seulement si la ligne a des données
-                                data.append(row_dict)
-                        
-                        if data:  # Si des données ont été lues
-                            self.logger.info(f"Fichier {file_path} lu avec succès via la méthode alternative. {len(data)} enregistrements.")
-                            return headers, data
+                                if not h.strip(): 
+                                    h = f"Column_{i}"
+                                if h in seen:
+                                    j = 1
+                                    while f"{h}_{j}" in seen:
+                                        j += 1
+                                    h = f"{h}_{j}"
+                                seen.add(h)
+                                clean_headers.append(h)
+                            headers = clean_headers
+                            data = []
+                            for row in reader:
+                                if not row or all(not cell for cell in row):
+                                    continue  
+                                if len(row) < len(headers):
+                                    row.extend([''] * (len(headers) - len(row)))
+                                elif len(row) > len(headers):
+                                    row = row[:len(headers)]
+                                row_dict = {}
+                                for i, h in enumerate(headers):
+                                    row_dict[h] = row[i]
+                                if row_dict:  
+                                    data.append(row_dict)
+                            if data:  
+                                self.logger.info(f"Fichier {file_path} lu avec succès via l'encodage alternatif. {len(data)} enregistrements.")
+                                return headers, data
                     except UnicodeDecodeError:
                         continue
-            except Exception as e:
-                self.logger.error(f"Erreur lors de la lecture alternative: {e}")
+            
+            self.logger.error(f"Impossible de lire le fichier {file_path} avec les encodages disponibles")
+            return None, None
         
         except Exception as e:
-            self.logger.error(f"Erreur lors de la lecture du fichier {file_path}: {e}")
+            self.logger.error(f"Erreur lors de l'analyse du fichier {file_path}: {e}")
             import traceback
             self.logger.error(traceback.format_exc())
-        
-        # Dernière tentative: utiliser directement le module csv avec les entêtes connues
-        try:
-            self.logger.info("Dernière tentative avec les entêtes connues...")
-            with open(file_path, 'r', encoding='utf-16-le', newline='') as csvfile:
-                reader = csv.reader(csvfile, delimiter=';')
-                headers = self.expected_headers  # Utiliser les entêtes prédéfinies
-                
-                # Sauter la ligne d'entête
-                next(reader, None)
-                
-                data = []
-                for row in reader:
-                    if not row or all(not cell for cell in row):
-                        continue
-                    
-                    # Ajuster la taille
-                    if len(row) < len(headers):
-                        row.extend([''] * (len(headers) - len(row)))
-                    elif len(row) > len(headers):
-                        row = row[:len(headers)]
-                    
-                    # Créer un dictionnaire
-                    row_dict = dict(zip(headers, row))
-                    data.append(row_dict)
-                
-                if data:
-                    self.logger.info(f"Fichier {file_path} lu avec succès via les entêtes prédéfinies. {len(data)} enregistrements.")
-                    return headers, data
-        except Exception as e:
-            self.logger.error(f"Erreur lors de la dernière tentative: {e}")
-        
-        self.logger.error(f"Impossible de lire le fichier {file_path} avec aucune méthode")
-        return None, None
+            return None, None
     
     def _split_csv_line(self, line, delimiter):
         """Divise une ligne CSV en respectant les guillemets
@@ -300,7 +284,6 @@ class CSVParser:
                 in_quotes = not in_quotes
                 current_field += char
             elif char == delimiter and not in_quotes:
-                # Enlever les guillemets entourant le champ si nécessaire
                 if current_field.startswith('"') and current_field.endswith('"') and len(current_field) > 1:
                     current_field = current_field[1:-1]
                 fields.append(current_field)
@@ -308,7 +291,6 @@ class CSVParser:
             else:
                 current_field += char
         
-        # Ajouter le dernier champ
         if current_field.startswith('"') and current_field.endswith('"') and len(current_field) > 1:
             current_field = current_field[1:-1]
         fields.append(current_field)
@@ -331,11 +313,8 @@ class CSVParser:
             with open(output_path, 'w', encoding=encoding, newline='') as file:
                 writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
                 
-                # Écrire l'entête
                 writer.writerow(headers)
-                # Écrire les données
                 for row in data:
-                    # Extraire les valeurs dans l'ordre des entêtes
                     values = [row.get(h, '') for h in headers]
                     writer.writerow(values)
                 

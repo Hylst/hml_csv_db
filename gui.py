@@ -17,13 +17,14 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QH
                            QTableWidget, QTableWidgetItem, QFileDialog, QMessageBox,
                            QProgressBar, QStatusBar, QAction, QTextEdit, QListWidget,
                            QGroupBox, QFormLayout, QDialog, QDialogButtonBox, QCheckBox,
-                           QSplitter, QFrame, QListWidgetItem, QInputDialog, QHeaderView)
+                           QSplitter, QFrame, QListWidgetItem, QInputDialog, QHeaderView, QSpinBox, QActionGroup)
 from PyQt5.QtCore import QThread, pyqtSignal, Qt, QMetaObject, Q_ARG, QVariant
 from PyQt5.QtGui import QIcon, QFont
 
 from csv_parser import CSVParser
 from db_manager import DatabaseManager
 from db_exporter import DBExporter, MYSQL_AVAILABLE, POSTGRES_AVAILABLE
+from format_exporter import FormatExporter
 
 # Configuration du logging
 logging.basicConfig(filename='mp3tag_analyzer.log', level=logging.INFO,
@@ -62,18 +63,27 @@ class MainWindow(QMainWindow):
     """Fenêtre principale de l'application"""
     
     def __init__(self):
-        """Initialisation de l'interface graphique"""
+        """Initialisation de la fenêtre principale"""
         super().__init__()
         
         # Initialisation des attributs
         self.csv_parser = CSVParser()
         self.db_manager = DatabaseManager()
         self.current_data = []
+        self.current_filtered_data = []
         self.headers = []
         self.active_workers = []  # Liste pour suivre les workers actifs
         self.logger = logging.getLogger('mp3tag_analyzer.gui')
-        self.current_filtered_data = []
+        self.current_csv_path = None
         self.current_db_path = None  # Attribut pour stocker le chemin de la base de données actuelle
+        
+        # Mode d'affichage des colonnes (automatique, minimal, moyen, large)
+        self.column_width_mode = "automatique"  # Par défaut: automatique
+        self.column_widths = {
+            "minimal": 80,
+            "moyen": 150,
+            "large": 250
+        }
         
         # Configuration de la fenêtre
         self.setWindowTitle("MP3Tag Analyzer")
@@ -87,7 +97,7 @@ class MainWindow(QMainWindow):
         self.db_manager.create_tables()
         
         self.logger.info("Interface initialisée")
-        
+
     def _init_ui(self):
         """Initialisation des composants de l'interface"""
         # Widget central
@@ -120,22 +130,34 @@ class MainWindow(QMainWindow):
         
         # Groupe pour la recherche
         search_group = QGroupBox("Recherche")
-        search_layout = QHBoxLayout(search_group)
+        search_layout = QVBoxLayout(search_group)
         
-        self.search_field = QLineEdit()
-        self.search_field.setPlaceholderText("Rechercher...")
-        self.search_field.returnPressed.connect(self._search_records)
-        
+        # Champ de recherche
+        search_input_layout = QHBoxLayout()
         self.search_column = QComboBox()
         self.search_column.addItem("Tous les champs", "all")
         
-        self.btn_search = QPushButton("Rechercher")
-        self.btn_search.clicked.connect(self._search_records)
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("Rechercher...")
+        self.search_input.returnPressed.connect(self._search_data)
         
-        search_layout.addWidget(QLabel("Rechercher dans:"))
-        search_layout.addWidget(self.search_column)
-        search_layout.addWidget(self.search_field)
-        search_layout.addWidget(self.btn_search)
+        search_button = QPushButton("Rechercher")
+        search_button.clicked.connect(self._search_data)
+        
+        reset_search_button = QPushButton("Réinitialiser filtres")
+        reset_search_button.clicked.connect(self._reset_filters)
+        
+        reset_data_button = QPushButton("Réinitialiser données")
+        reset_data_button.clicked.connect(self._reset_data)
+        
+        search_input_layout.addWidget(QLabel("Rechercher dans:"))
+        search_input_layout.addWidget(self.search_column)
+        search_input_layout.addWidget(self.search_input)
+        search_input_layout.addWidget(search_button)
+        search_input_layout.addWidget(reset_search_button)
+        search_input_layout.addWidget(reset_data_button)
+        
+        search_layout.addLayout(search_input_layout)
         
         # Barre de progression
         self.progress_bar = QProgressBar()
@@ -312,6 +334,24 @@ class MainWindow(QMainWindow):
             export_postgres_disabled.setEnabled(False)
             export_menu.addAction(export_postgres_disabled)
         
+        # Séparateur dans le sous-menu Export
+        export_menu.addSeparator()
+        
+        # Export CSV
+        export_csv_action = QAction("CSV", self)
+        export_csv_action.triggered.connect(self._export_to_csv)
+        export_menu.addAction(export_csv_action)
+        
+        # Export JSON
+        export_json_action = QAction("JSON", self)
+        export_json_action.triggered.connect(self._export_to_json)
+        export_menu.addAction(export_json_action)
+        
+        # Export XML
+        export_xml_action = QAction("XML", self)
+        export_xml_action.triggered.connect(self._export_to_xml)
+        export_menu.addAction(export_xml_action)
+        
         # Séparateur
         file_menu.addSeparator()
         
@@ -323,6 +363,43 @@ class MainWindow(QMainWindow):
         # Menu Édition
         edit_menu = menu_bar.addMenu("Édition")
         
+        # Sous-menu Largeur des colonnes
+        column_width_menu = edit_menu.addMenu("Largeur des colonnes")
+        
+        # Options de largeur
+        auto_width_action = QAction("Automatique", self)
+        auto_width_action.triggered.connect(lambda: self._set_column_width_mode("automatique"))
+        auto_width_action.setCheckable(True)
+        auto_width_action.setChecked(self.column_width_mode == "automatique")
+        
+        min_width_action = QAction("Minimale", self)
+        min_width_action.triggered.connect(lambda: self._set_column_width_mode("minimal"))
+        min_width_action.setCheckable(True)
+        min_width_action.setChecked(self.column_width_mode == "minimal")
+        
+        med_width_action = QAction("Moyenne", self)
+        med_width_action.triggered.connect(lambda: self._set_column_width_mode("moyen"))
+        med_width_action.setCheckable(True)
+        med_width_action.setChecked(self.column_width_mode == "moyen")
+        
+        max_width_action = QAction("Grande", self)
+        max_width_action.triggered.connect(lambda: self._set_column_width_mode("large"))
+        max_width_action.setCheckable(True)
+        max_width_action.setChecked(self.column_width_mode == "large")
+        
+        # Groupe d'actions pour les options de largeur
+        self.column_width_action_group = QActionGroup(self)
+        self.column_width_action_group.addAction(auto_width_action)
+        self.column_width_action_group.addAction(min_width_action)
+        self.column_width_action_group.addAction(med_width_action)
+        self.column_width_action_group.addAction(max_width_action)
+        self.column_width_action_group.setExclusive(True)
+        
+        column_width_menu.addAction(auto_width_action)
+        column_width_menu.addAction(min_width_action)
+        column_width_menu.addAction(med_width_action)
+        column_width_menu.addAction(max_width_action)
+        
         # Menu Aide
         help_menu = menu_bar.addMenu("Aide")
         
@@ -330,7 +407,18 @@ class MainWindow(QMainWindow):
         about_action = QAction("À propos", self)
         about_action.triggered.connect(self._show_about)
         help_menu.addAction(about_action)
-    
+
+    def _set_column_width_mode(self, mode):
+        """Définit le mode d'affichage des colonnes"""
+        self.column_width_mode = mode
+        
+        if mode == "automatique":
+            self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
+        else:
+            width = self.column_widths[mode]
+            for i in range(self.table_widget.columnCount()):
+                self.table_widget.setColumnWidth(i, width)
+
     def _load_csv_file(self):
         """Chargement d'un fichier CSV"""
         file_path, _ = QFileDialog.getOpenFileName(
@@ -389,19 +477,28 @@ class MainWindow(QMainWindow):
         Cette méthode s'exécute dans un thread séparé, elle ne doit donc pas manipuler directement l'interface
         """
         try:
-            # Utiliser le gestionnaire de base de données courant avec le chemin actuel
-            db = DatabaseManager()
-            db.connect(self.current_db_path)
+            # Mémoriser l'ancienne connexion
+            old_conn = self.db_manager.conn
+            old_cursor = self.db_manager.cursor
             
-            # Créer les tables si elles n'existent pas
-            db.create_tables()
+            # Réutiliser le gestionnaire existant mais avec une nouvelle connexion pour thread-safety
+            if self.current_db_path:
+                self.db_manager.connect(self.current_db_path)
+            else:
+                self.db_manager.connect()
             
-            # Insertion des données dans la base
-            data = self.current_data
-            records_inserted = db.insert_records(data)
+            # Créer les tables si nécessaire
+            self.db_manager.create_tables()
             
-            # Fermeture de la connexion
-            db.close()
+            # Insertion des données avec vérification d'unicité
+            records_inserted = self.db_manager.insert_records(self.current_data)
+            
+            # Fermer la connexion temporaire et restaurer l'ancienne
+            self.db_manager.close()
+            
+            # Restaurer l'ancienne connexion
+            self.db_manager.conn = old_conn
+            self.db_manager.cursor = old_cursor
             
             return records_inserted
         except Exception as e:
@@ -556,36 +653,63 @@ class MainWindow(QMainWindow):
     
     def _update_table(self, data=None):
         """Mise à jour du tableau avec les données actuelles"""
-        if not self.headers:
-            return
+        if data is None:
+            data = self.current_data
             
-        display_data = data if data is not None else self.current_data
-        
-        if not display_data:
+        if not data:
+            self.table_widget.setRowCount(0)
             return
+        
+        # Mise à jour des en-têtes si nécessaire
+        if not self.headers:
+            # Utiliser les clés du premier élément comme en-têtes
+            self.headers = list(data[0].keys())
         
         # Configuration du tableau
-        self.table_widget.setRowCount(len(display_data))
+        self.table_widget.setRowCount(len(data))
         self.table_widget.setColumnCount(len(self.headers))
         self.table_widget.setHorizontalHeaderLabels(self.headers)
         
+        # Déconnexion temporaire du signal itemChanged pour éviter les appels pendant le remplissage
+        try:
+            self.table_widget.itemChanged.disconnect(self._cell_changed)
+        except:
+            pass
+        
         # Remplissage du tableau
-        for row_idx, row_data in enumerate(display_data):
+        for row_idx, row_data in enumerate(data):
             for col_idx, header in enumerate(self.headers):
                 # Récupération de la valeur
                 value = ""
-                # Essayer d'abord avec la clé originale du CSV
+                
+                # Vérifier si la clé existe directement
                 if header in row_data:
                     value = row_data[header]
                 else:
-                    # Essayer avec la version normalisée (snake_case)
+                    # Essayer avec la clé normalisée (snake_case)
                     normalized_key = header.lower().replace(' ', '_')
                     if normalized_key in row_data:
                         value = row_data[normalized_key]
                 
+                # Formatage spécial pour certains champs
+                if header == "AudioLength" and value:
+                    try:
+                        # Conversion des secondes en format h:m:s
+                        seconds = int(float(value))
+                        hours, remainder = divmod(seconds, 3600)
+                        minutes, seconds = divmod(remainder, 60)
+                        if hours > 0:
+                            value = f"{hours}:{minutes:02d}:{seconds:02d}"
+                        else:
+                            value = f"{minutes:02d}:{seconds:02d}"
+                    except (ValueError, TypeError):
+                        # En cas d'erreur, garder la valeur originale
+                        pass
+                
                 # Création de l'item
                 item = QTableWidgetItem(str(value))
-                item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Rendre l'item non éditable
+                # Rendre l'item éditable
+                item.setFlags(item.flags() | Qt.ItemIsEditable)
                 
                 # Stocker les données brutes pour le tri
                 if isinstance(value, (int, float)):
@@ -594,9 +718,17 @@ class MainWindow(QMainWindow):
                 # Ajout de l'item au tableau
                 self.table_widget.setItem(row_idx, col_idx, item)
         
-        # Ajustement des colonnes
-        self.table_widget.resizeColumnsToContents()
+        # Ajustement des colonnes selon le mode sélectionné
+        if self.column_width_mode == "automatique":
+            self.table_widget.resizeColumnsToContents()
+        else:
+            width = self.column_widths[self.column_width_mode]
+            for i in range(self.table_widget.columnCount()):
+                self.table_widget.setColumnWidth(i, width)
         
+        # Reconnexion du signal de modification des cellules
+        self.table_widget.itemChanged.connect(self._cell_changed)
+
     def _sort_table(self, column_index):
         """Trie le tableau selon la colonne cliquée"""
         # L'en-tête du tableau gère automatiquement le tri
@@ -751,13 +883,13 @@ class MainWindow(QMainWindow):
         
         self.status_bar.showMessage(f"Preset SQL '{name}' sauvegardé dans la catégorie '{category}'")
     
-    def _search_records(self):
-        """Recherche d'enregistrements dans la base de données"""
+    def _search_data(self):
+        """Recherche dans les données selon les critères"""
         if not self.current_data:
             QMessageBox.warning(self, "Erreur", "Aucune donnée à rechercher")
             return
         
-        search_text = self.search_field.text().strip()
+        search_text = self.search_input.text().strip()
         search_column = self.search_column.currentData()
         
         if not search_text:
@@ -767,44 +899,56 @@ class MainWindow(QMainWindow):
             self.status_bar.showMessage(f"Affichage de tous les enregistrements ({len(self.current_data)})")
             return
         
-        # Filtrer les données en fonction du texte de recherche
+        # Recherche dans les données
         filtered_data = []
-        search_text = search_text.lower()  # Convertir en minuscules pour une recherche insensible à la casse
         
-        for row in self.current_data:
+        for record in self.current_data:
             if search_column == "all":
-                # Rechercher dans tous les champs
-                match = False
-                for key, value in row.items():
-                    if isinstance(value, str) and search_text in value.lower():
-                        match = True
+                # Recherche dans tous les champs
+                for key, value in record.items():
+                    if isinstance(value, str) and search_text.lower() in value.lower():
+                        filtered_data.append(record)
                         break
-                if match:
-                    filtered_data.append(row)
             else:
-                # Rechercher dans la colonne spécifique
-                # Tester les deux formats de noms de colonnes (original et snake_case)
-                value = ""
-                if search_column in row:
-                    value = str(row[search_column]).lower()
+                # Recherche dans une colonne spécifique
+                if search_column in record:
+                    value = record[search_column]
+                    if isinstance(value, str) and search_text.lower() in value.lower():
+                        filtered_data.append(record)
                 else:
-                    # Essayer avec le nom original tel qu'il apparaît dans les headers
-                    for header in self.headers:
-                        if header.lower().replace(' ', '_') == search_column:
-                            if header in row:
-                                value = str(row[header]).lower()
-                                break
-                
-                if search_text in value:
-                    filtered_data.append(row)
+                    # Essayer avec la clé normalisée
+                    normalized_key = search_column.lower().replace(' ', '_')
+                    if normalized_key in record:
+                        value = record[normalized_key]
+                        if isinstance(value, str) and search_text.lower() in value.lower():
+                            filtered_data.append(record)
         
+        # Mise à jour du tableau avec les résultats
+        self.current_filtered_data = filtered_data
+        self._update_table(filtered_data)
+        
+        # Mise à jour de la barre de statut
         if filtered_data:
-            self.current_filtered_data = filtered_data
-            self._update_table(filtered_data)
-            self.status_bar.showMessage(f"{len(filtered_data)} enregistrements trouvés")
+            self.status_bar.showMessage(f"{len(filtered_data)} enregistrement(s) trouvé(s)")
         else:
             QMessageBox.information(self, "Résultats", "Aucun enregistrement ne correspond aux critères de recherche")
             self.status_bar.showMessage("Aucun résultat")
+
+    def _reset_filters(self):
+        """Réinitialise les filtres"""
+        self.search_input.clear()
+        self.search_column.setCurrentIndex(0)
+        self.current_filtered_data = self.current_data
+        self._update_table()
+        self.status_bar.showMessage(f"Affichage de tous les enregistrements ({len(self.current_data)})")
+    
+    def _reset_data(self):
+        """Réinitialise les données"""
+        self.current_data = []
+        self.headers = []
+        self.current_filtered_data = []
+        self._update_table()
+        self.status_bar.showMessage("Données réinitialisées")
     
     def _show_about(self):
         """Affichage de la boîte de dialogue À propos"""
@@ -812,10 +956,22 @@ class MainWindow(QMainWindow):
             self,
             "À propos",
             f"""<b>MP3Tag Analyzer</b>
-            <p>Version 1.0.0</p>
+            <p>Version 1.5.0</p>
             <p>Auteur: Geoffroy Streit</p>
             <p>Date: {datetime.now().strftime('%d/%m/%Y')}</p>
             <p>Un programme pour analyser les fichiers CSV générés par MP3tag et les stocker dans une base de données SQLite.</p>
+            <p><b>Fonctionnalités principales:</b></p>
+            <ul>
+                <li>Chargement de fichiers CSV générés par MP3tag (UTF-8, UTF-16-LE)</li>
+                <li>Détection automatique de l'encodage et du séparateur</li>
+                <li>Stockage des données dans une base SQLite</li>
+                <li>Recherche avancée par critères multiples</li>
+                <li>Exécution de requêtes SQL personnalisées</li>
+                <li>Export vers MySQL et PostgreSQL</li>
+                <li>Export vers formats standards: CSV, JSON, XML</li>
+                <li>Édition des métadonnées directement dans l'interface</li>
+            </ul>
+            <p>Développé avec PyQt5 et SQLite.</p>
             """
         )
     
@@ -1025,6 +1181,262 @@ class MainWindow(QMainWindow):
         if sender in self.active_workers:
             self.active_workers.remove(sender)
 
+    def _export_to_csv(self):
+        """Exporte les données vers un fichier CSV"""
+        if not self.current_data:
+            QMessageBox.warning(self, "Erreur", "Aucune donnée à exporter. Veuillez d'abord charger un fichier CSV ou une base de données.")
+            return
+        
+        # Boîte de dialogue de configuration CSV
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Configuration de l'export CSV")
+        layout = QFormLayout(dialog)
+        
+        # Champs de configuration
+        delimiter_input = QComboBox()
+        delimiter_input.addItem("Point-virgule (;)", ";")
+        delimiter_input.addItem("Virgule (,)", ",")
+        delimiter_input.addItem("Tabulation (\t)", "\t")
+        
+        encoding_input = QComboBox()
+        encoding_input.addItem("UTF-8 avec BOM", "utf-8-sig")
+        encoding_input.addItem("UTF-8", "utf-8")
+        encoding_input.addItem("UTF-16-LE (MP3Tag)", "utf-16-le")
+        encoding_input.addItem("ISO-8859-1", "iso-8859-1")
+        
+        include_headers_input = QCheckBox()
+        include_headers_input.setChecked(True)
+        
+        layout.addRow("Séparateur:", delimiter_input)
+        layout.addRow("Encodage:", encoding_input)
+        layout.addRow("Inclure les en-têtes:", include_headers_input)
+        
+        # Boutons
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addRow(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            # Demander le chemin du fichier de destination
+            file_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "Enregistrer le fichier CSV",
+                "",
+                "Fichiers CSV (*.csv);;Tous les fichiers (*)"
+            )
+            
+            if file_path:
+                # Si l'extension n'est pas spécifiée, ajouter .csv
+                if not file_path.endswith('.csv'):
+                    file_path += '.csv'
+                
+                # Récupération des valeurs de configuration
+                config = {
+                    'delimiter': delimiter_input.currentData(),
+                    'encoding': encoding_input.currentData(),
+                    'include_headers': include_headers_input.isChecked()
+                }
+                
+                # Mise à jour de la barre de statut et affichage de la barre de progression
+                self.status_bar.showMessage("Exportation vers CSV en cours...")
+                self.progress_bar.setVisible(True)
+                
+                # Création du worker pour l'exportation
+                worker = Worker(lambda: self._do_csv_export(file_path, config))
+                worker.finished.connect(lambda count: self._export_completed("CSV", count))
+                worker.error.connect(self._handle_error)
+                worker.start()
+                self.active_workers.append(worker)
+    
+    def _export_to_json(self):
+        """Exporte les données vers un fichier JSON"""
+        if not self.current_data:
+            QMessageBox.warning(self, "Erreur", "Aucune donnée à exporter. Veuillez d'abord charger un fichier CSV ou une base de données.")
+            return
+        
+        # Boîte de dialogue de configuration JSON
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Configuration de l'export JSON")
+        layout = QFormLayout(dialog)
+        
+        # Champs de configuration
+        encoding_input = QComboBox()
+        encoding_input.addItem("UTF-8", "utf-8")
+        encoding_input.addItem("UTF-16", "utf-16")
+        
+        indent_input = QSpinBox()
+        indent_input.setRange(0, 8)
+        indent_input.setValue(2)
+        
+        format_input = QComboBox()
+        format_input.addItem("Tableau JSON", True)
+        format_input.addItem("Objet JSON avec IDs", False)
+        
+        layout.addRow("Encodage:", encoding_input)
+        layout.addRow("Indentation:", indent_input)
+        layout.addRow("Format:", format_input)
+        
+        # Boutons
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addRow(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            # Demander le chemin du fichier de destination
+            file_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "Enregistrer le fichier JSON",
+                "",
+                "Fichiers JSON (*.json);;Tous les fichiers (*)"
+            )
+            
+            if file_path:
+                # Si l'extension n'est pas spécifiée, ajouter .json
+                if not file_path.endswith('.json'):
+                    file_path += '.json'
+                
+                # Récupération des valeurs de configuration
+                config = {
+                    'encoding': encoding_input.currentData(),
+                    'indent': indent_input.value(),
+                    'as_array': format_input.currentData()
+                }
+                
+                # Mise à jour de la barre de statut et affichage de la barre de progression
+                self.status_bar.showMessage("Exportation vers JSON en cours...")
+                self.progress_bar.setVisible(True)
+                
+                # Création du worker pour l'exportation
+                worker = Worker(lambda: self._do_json_export(file_path, config))
+                worker.finished.connect(lambda count: self._export_completed("JSON", count))
+                worker.error.connect(self._handle_error)
+                worker.start()
+                self.active_workers.append(worker)
+    
+    def _export_to_xml(self):
+        """Exporte les données vers un fichier XML"""
+        if not self.current_data:
+            QMessageBox.warning(self, "Erreur", "Aucune donnée à exporter. Veuillez d'abord charger un fichier CSV ou une base de données.")
+            return
+        
+        # Boîte de dialogue de configuration XML
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Configuration de l'export XML")
+        layout = QFormLayout(dialog)
+        
+        # Champs de configuration
+        encoding_input = QComboBox()
+        encoding_input.addItem("UTF-8", "utf-8")
+        encoding_input.addItem("UTF-16", "utf-16")
+        
+        root_element_input = QLineEdit("mp3collection")
+        item_element_input = QLineEdit("track")
+        
+        pretty_print_input = QCheckBox()
+        pretty_print_input.setChecked(True)
+        
+        layout.addRow("Encodage:", encoding_input)
+        layout.addRow("Nom de l'élément racine:", root_element_input)
+        layout.addRow("Nom de l'élément pour chaque piste:", item_element_input)
+        layout.addRow("Formatage pour lisibilité:", pretty_print_input)
+        
+        # Boutons
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addRow(buttons)
+        
+        if dialog.exec_() == QDialog.Accepted:
+            # Demander le chemin du fichier de destination
+            file_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "Enregistrer le fichier XML",
+                "",
+                "Fichiers XML (*.xml);;Tous les fichiers (*)"
+            )
+            
+            if file_path:
+                # Si l'extension n'est pas spécifiée, ajouter .xml
+                if not file_path.endswith('.xml'):
+                    file_path += '.xml'
+                
+                # Récupération des valeurs de configuration
+                config = {
+                    'encoding': encoding_input.currentData(),
+                    'root_element': root_element_input.text(),
+                    'item_element': item_element_input.text(),
+                    'pretty_print': pretty_print_input.isChecked()
+                }
+                
+                # Mise à jour de la barre de statut et affichage de la barre de progression
+                self.status_bar.showMessage("Exportation vers XML en cours...")
+                self.progress_bar.setVisible(True)
+                
+                # Création du worker pour l'exportation
+                worker = Worker(lambda: self._do_xml_export(file_path, config))
+                worker.finished.connect(lambda count: self._export_completed("XML", count))
+                worker.error.connect(self._handle_error)
+                worker.start()
+                self.active_workers.append(worker)
+    
+    def _do_csv_export(self, file_path, config):
+        """Effectue l'exportation vers CSV dans un thread séparé"""
+        try:
+            exporter = FormatExporter()
+            return exporter.export_to_csv(
+                self.current_data, 
+                file_path,
+                delimiter=config['delimiter'],
+                encoding=config['encoding'],
+                include_headers=config['include_headers']
+            )
+        except Exception as e:
+            raise Exception(f"Erreur lors de l'exportation vers CSV: {str(e)}")
+    
+    def _do_json_export(self, file_path, config):
+        """Effectue l'exportation vers JSON dans un thread séparé"""
+        try:
+            exporter = FormatExporter()
+            return exporter.export_to_json(
+                self.current_data, 
+                file_path,
+                encoding=config['encoding'],
+                indent=config['indent'],
+                as_array=config['as_array']
+            )
+        except Exception as e:
+            raise Exception(f"Erreur lors de l'exportation vers JSON: {str(e)}")
+    
+    def _do_xml_export(self, file_path, config):
+        """Effectue l'exportation vers XML dans un thread séparé"""
+        try:
+            exporter = FormatExporter()
+            return exporter.export_to_xml(
+                self.current_data, 
+                file_path,
+                encoding=config['encoding'],
+                root_element=config['root_element'],
+                item_element=config['item_element'],
+                pretty_print=config['pretty_print']
+            )
+        except Exception as e:
+            raise Exception(f"Erreur lors de l'exportation vers XML: {str(e)}")
+
+    def _cell_changed(self, item):
+        """Gestionnaire appelé lorsque le contenu d'une cellule est modifié"""
+        # Récupérer les informations de la cellule modifiée
+        row = item.row()
+        column = item.column()
+        new_value = item.text()
+        
+        # Mettre à jour les données en mémoire
+        if self.current_data:
+            self.current_data[row][self.headers[column]] = new_value
+        
+        # Afficher un message de confirmation
+        self.status_bar.showMessage(f"Cellule ({row}, {column}) modifiée en '{new_value}'")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

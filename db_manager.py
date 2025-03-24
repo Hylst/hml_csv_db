@@ -99,12 +99,14 @@ class DatabaseManager:
             self.logger.info("Connexion à la base de données fermée")
     
     def create_tables(self):
-        """Création des tables de la base de données"""
+        """Création des tables dans la base de données"""
         try:
-            # Table principale pour les informations des fichiers MP3
+            # Création de la table mp3_files avec une clé primaire unique
             self.cursor.execute('''
                 CREATE TABLE IF NOT EXISTS mp3_files (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    relative_path TEXT NOT NULL,
+                    filename TEXT NOT NULL,
                     title TEXT,
                     artist TEXT,
                     album TEXT,
@@ -118,8 +120,6 @@ class DatabaseManager:
                     crc TEXT,
                     file_create_date TEXT,
                     last_modified TEXT,
-                    relative_path TEXT,
-                    filename TEXT,
                     extension TEXT,
                     directory TEXT,
                     parent_directory TEXT,
@@ -135,24 +135,23 @@ class DatabaseManager:
                     vbr TEXT,
                     tag_type TEXT,
                     cover_description TEXT,
-                    cover_size INTEGER,
+                    cover_size TEXT,
                     cover_type TEXT,
                     cover_mime TEXT,
                     cover_height INTEGER,
                     cover_width INTEGER,
-                    unsynced_lyrics TEXT,
+                    unsync_lyrics TEXT,
                     src_fix TEXT,
                     play_counter INTEGER,
-                    import_date TEXT
+                    import_date TEXT,
+                    UNIQUE(relative_path, filename)  -- Clé unique pour éviter les duplications
                 )
             ''')
             
-            self.conn.commit()
             self.logger.info("Tables créées avec succès")
             return True
         except sqlite3.Error as e:
             self.logger.error(f"Erreur lors de la création des tables: {e}")
-            self.conn.rollback()
             return False
     
     def insert_mp3_data(self, mp3_data):
@@ -216,6 +215,7 @@ class DatabaseManager:
         try:
             now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             inserted_count = 0
+            duplicates_count = 0
             
             # S'assurer que les tables existent
             self.create_tables()
@@ -237,6 +237,12 @@ class DatabaseManager:
                     # Stocker la valeur avec le nom de colonne normalisé
                     mapped_row[db_col] = value
                 
+                # Normaliser le chemin relatif et le nom de fichier
+                if 'relative_path' in mapped_row:
+                    mapped_row['relative_path'] = os.path.normpath(mapped_row['relative_path'].strip())
+                if 'filename' in mapped_row:
+                    mapped_row['filename'] = mapped_row['filename'].strip()
+                
                 # 2. Vérifier quelles colonnes existent dans la table mp3_files
                 # Récupérer la structure de la table
                 self.cursor.execute("PRAGMA table_info(mp3_files)")
@@ -251,6 +257,16 @@ class DatabaseManager:
                 # Si aucune colonne valide, passer à l'enregistrement suivant
                 if not valid_columns:
                     self.logger.warning(f"Enregistrement ignoré car aucune colonne valide: {row}")
+                    continue
+                
+                # Vérifier si l'enregistrement existe déjà
+                existing_query = "SELECT COUNT(*) FROM mp3_files WHERE relative_path = ? AND filename = ?"
+                self.cursor.execute(existing_query, (valid_columns.get('relative_path', ''), valid_columns.get('filename', '')))
+                count = self.cursor.fetchone()[0]
+                
+                if count > 0:
+                    self.logger.info(f"Enregistrement déjà existant: {valid_columns.get('relative_path', '')}/{valid_columns.get('filename', '')}")
+                    duplicates_count += 1
                     continue
                 
                 # Préparer la requête avec seulement les colonnes valides
@@ -273,7 +289,7 @@ class DatabaseManager:
             
             # Valider toutes les insertions
             self.conn.commit()
-            self.logger.info(f"{inserted_count} enregistrements insérés avec succès")
+            self.logger.info(f"Import terminé: {inserted_count} insérés, {duplicates_count} ignorés (doublons)")
             return inserted_count
         except sqlite3.Error as e:
             self.logger.error(f"Erreur lors de l'insertion des données: {e}")

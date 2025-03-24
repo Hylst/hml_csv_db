@@ -71,3 +71,31 @@
 - Correction du problème de sauvegarde de la base de données qui n'enregistrait pas les données
 - Amélioration de la gestion des erreurs lors de l'exportation
 - Optimisation du processus d'enregistrement de la base de données
+
+## v1.5.0 (23/03/2025)
+
+### Ajout
+- Fonctionnalité d'export vers des formats de fichiers standards:
+  - Export vers CSV avec options de configuration (séparateur, encodage, en-têtes)
+  - Export vers JSON avec options de format (tableau ou objet avec IDs)
+  - Export vers XML avec options de personnalisation (noms d'éléments, formatage)
+- Interface utilisateur pour la configuration des options d'export
+- Traitement asynchrone des exports pour maintenir la réactivité de l'interface
+
+### Amélioration
+- Meilleure gestion des erreurs lors des exports
+- Options d'encodage étendues pour une meilleure compatibilité avec d'autres applications
+- Préservation des métadonnées lors de l'export vers différents formats
+
+## v1.6.0 (24/03/2025)
+
+### Ajout
+- Possibilité d'édition directe des données dans le tableau
+- Boutons de réinitialisation des filtres et des données
+- Menu de configuration de la largeur des colonnes avec 4 modes (automatique, minimal, moyen, large)
+
+### Amélioration
+- Conversion automatique du temps AudioLength en format heures:minutes:secondes
+- Affichage du nombre d'éléments exportés dans les messages de confirmation
+- Boîte de dialogue "À propos" enrichie avec plus de détails sur les fonctionnalités
+- Meilleure gestion de l'affichage des données dans le tableau

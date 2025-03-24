@@ -58,6 +58,11 @@ L'application peut charger des donnu00e9es depuis des fichiers SQLite existants 
   - Export vers une base PostgreSQL
   - Configuration des paramu00e8tres de connexion
   - Cru00e9ation automatique des tables
+- **Autres formats (planifiu00e9)** :
+  - Export vers CSV (pour ru00e9importation dans d'autres outils)
+  - Export vers JSON (pour intu00e9gration web et API)
+  - Export vers XML (pour compatibilitu00e9 avec d'autres applications)
+  - Options de configuration pour chaque format d'export
 
 ## Interface utilisateur
 
